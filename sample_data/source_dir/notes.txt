@@ -1,0 +1,2 @@
+This is a sample note file.
+This file should NOT be moved by the automated organizer script because it is a .txt file, not a .jpg or .jpeg file.

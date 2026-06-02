@@ -1,0 +1,22 @@
+Hi Team,
+
+Here is the updated department contact listing for the CodeAlpha Python Projects.
+Please reach out to the respective individuals if you have any questions:
+
+1. Technical Support: support@codealpha.org (Mon-Fri)
+2. HR and Onboarding queries: jobs.recruit@company-talent.co.uk
+3. Project Manager: john.doe@sub.domain.com
+4. Public Relations: info@global-outreach.net
+
+Some invalid or broken email strings that our parser should ignore:
+- random-word-without-at-sign
+- @incomplete-domain.com
+- missing-tld@domain.
+- multiple@@signs.com
+- space inside @ text.com
+
+Let's make sure the automation catches: hr-department@codealpha.com as well.
+
+Regards,
+Internship Coordinators Team
+coordinators@codealpha.org
