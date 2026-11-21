@@ -1,57 +1,86 @@
-# CodeAlpha Python Programming Internship - Task 3: Task Automation Script
+# CodeAlpha Python Programming Internship - Task 3: Task Automation
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Internship](https://img.shields.io/badge/Internship-CodeAlpha-FF6B6B?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+</div>
 
 ## 📝 Project Overview
-This repository contains a suite of three **Task Automation Scripts** developed in Python, designed to automate common real-world administrative and web tasks:
-1. **File Organizer (`move_images.py`)**: Organizes image assets by moving all JPEG/JPG files from a source folder into an organized destination folder.
-2. **Email Extractor (`email_extractor.py`)**: Uses robust regular expressions (`re`) to parse any text file, extract all valid email addresses, deduplicate them, and write a clean list to a file.
-3. **Webpage Title Scraper (`webpage_title_scraper.py`)**: Crawls a target URL, scrapes its HTML content using `BeautifulSoup`, extracts the webpage's `<title>` tag, and exports it to a text file.
+This repository contains a complete suite of **Task Automation Scripts** developed in Python for the **CodeAlpha Python Programming Internship (Task 3)**. Instead of completing just one automation idea, this repository implements **all three** recommended real-life tasks:
+1. **Image Organizer (`move_images.py`)**: Automatically scans a directory and moves all `.jpg` and `.jpeg` images to a designated destination folder.
+2. **Regex Email Extractor (`email_extractor.py`)**: Parses raw text files, extracts all valid email addresses using regular expressions, deduplicates them, and writes a clean list to a file.
+3. **Webpage Title Scraper (`webpage_title_scraper.py`)**: Fetches any target webpage, parses its HTML DOM via `BeautifulSoup`, extracts the `<title>` tag, and saves the result to a report file.
 
-## 🎯 Objective
-This project demonstrates standard task automation practices in Python using both built-in utilities (`os`, `shutil`, `re`) and highly popular open-source packages (`requests`, `beautifulsoup4`).
+---
+
+## 🎯 Task Objectives & Compliance
+- [x] **Automation Scope**: Automates real-world repetitive administrative and data-extraction workflows.
+- [x] **Includes All 3 Automation Ideas**:
+  - Image file moving and directory decluttering.
+  - Regex pattern matching for email extraction.
+  - Web scraping with HTTP requests and HTML parsing.
+- [x] **Key Concepts Implemented**: `os`, `shutil`, `re`, `requests`, `beautifulsoup4`, file I/O handling, and error containment.
+
+---
+
+## 📸 Execution Preview
+Below is the verified running screenshot of the Task Automation suite in terminal:
+
+<div align="center">
+
+![Task Automation Suite Execution Preview](screenshots/run_preview.png)
+
+</div>
 
 ---
 
 ## ✨ Features
 
-### Script 1: Image Organizer (`move_images.py`)
-- Automatically filters out files with `.jpg` and `.jpeg` extensions case-insensitively.
-- Safely moves files using `shutil.move` without deleting non-target files.
-- Automatically handles directory creation for target folder if missing.
+### 1. Image Organizer (`move_images.py`)
+- Filters files with `.jpg` and `.jpeg` extensions case-insensitively.
+- Safely moves image files using `shutil.move` without affecting other documents.
+- Creates target destination directories automatically if they do not exist.
+- Provides sample test directories out-of-the-box (`sample_data/source_dir`).
 
-### Script 2: Regex Email Extractor (`email_extractor.py`)
-- Employs a robust, industry-standard email matching regular expression pattern.
-- Deduplicates matching emails automatically using set collections.
-- Outputs extracted emails both to the command terminal and a sorted `.txt` report file.
+### 2. Regex Email Extractor (`email_extractor.py`)
+- Employs an RFC-compliant regex pattern (`r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'`).
+- Automatically deduplicates and sorts extracted email addresses.
+- Saves the clean email list to `extracted_emails.txt`.
 
-### Script 3: Web Scraper (`webpage_title_scraper.py`)
-- Performs network requests using the HTTP standard client (`requests`).
-- Uses custom headers (User-Agent emulation) to prevent scraping-detection blocks.
-- Employs `BeautifulSoup` parsing to extract HTML `<title>` tags cleanly.
-- Implements comprehensive network exception handling for connection timeouts, DNS resolution issues, or HTTP failure codes.
+### 3. Webpage Title Scraper (`webpage_title_scraper.py`)
+- Sends HTTP GET requests using `requests` with a realistic browser User-Agent header.
+- Parses HTML trees using `bs4.BeautifulSoup`.
+- Handles connection errors, timeouts, and HTTP status codes cleanly.
+- Saves scraped titles to `scraped_title.txt`.
 
 ---
 
 ## 🛠️ Technologies Used
-- **Language**: Python 3
-- **Core Modules**: `os`, `shutil`, `re`
-- **External Dependencies**: `requests`, `beautifulsoup4`
+- **Language**: Python 3.x
+- **Standard Libraries**: `os`, `shutil`, `re`, `sys`
+- **Third-Party Libraries**: `requests`, `beautifulsoup4`
 
 ---
 
-## 📂 Folder Structure
+## 📂 Repository Structure
 ```text
 CodeAlpha_TaskAutomation/
 │
 ├── move_images.py              # Script 1: Image Mover & Organizer
 ├── email_extractor.py          # Script 2: Regex Email Extractor
 ├── webpage_title_scraper.py    # Script 3: Web Scraper (Title Grabber)
-├── requirements.txt            # Python External Dependencies
-├── README.md                   # Project Documentation
-├── screenshots/                # Directory containing sample run previews
-│
-└── sample_data/                # Out-of-the-box local testing dataset
-    ├── input_emails.txt        # Sample text file with emails mixed in
-    └── source_dir/             # Sample source directory with dummy files
+├── requirements.txt            # Third-Party Dependencies
+├── README.md                   # Project Documentation & Guide
+├── .gitignore                  # Git Ignore File
+├── screenshots/
+│   └── run_preview.png         # Terminal Running Screenshot
+└── sample_data/
+    ├── input_emails.txt        # Sample text file for email extraction
+    └── source_dir/             # Sample source folder with test images
         ├── image1.jpg
         ├── image2.jpg
         └── notes.txt
@@ -59,109 +88,50 @@ CodeAlpha_TaskAutomation/
 
 ---
 
-## 🚀 Installation & Getting Started
+## 🚀 How to Run Locally
 
 ### Prerequisites
-- **Python**: Make sure Python 3.x is installed.
-- **Pip**: Verify pip (Python Package Installer) is ready.
+- Python 3.8 or higher.
+- Check Python and pip:
+  ```bash
+  python --version
+  pip --version
+  ```
 
-### Installation Steps
-1. Navigate to the automation repository:
+### Step-by-Step Execution
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/pragna3101/CodeAlpha_TaskAutomation.git
+   ```
+2. **Navigate into the directory:**
    ```bash
    cd CodeAlpha_TaskAutomation
    ```
-2. Install required third-party libraries for the web scraper using pip:
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
+4. **Run Script 1 (Image Organizer):**
+   ```bash
+   python move_images.py
+   ```
+   *(Press Enter to run on default `sample_data/source_dir`)*
+
+5. **Run Script 2 (Email Extractor):**
+   ```bash
+   python email_extractor.py
+   ```
+   *(Press Enter to extract from `sample_data/input_emails.txt`)*
+
+6. **Run Script 3 (Webpage Title Scraper):**
+   ```bash
+   python webpage_title_scraper.py
+   ```
+   *(Press Enter to scrape default URL `https://example.com`)*
 
 ---
 
-## 🎮 How to Run
-
-### 1. Run the Image Organizer
-Move files from the included `sample_data/source_dir` to `sample_data/dest_dir`:
-```bash
-python move_images.py
-```
-*(Press Enter when prompted to use default settings)*
-
-### 2. Run the Email Extractor
-Extract sample emails from `sample_data/input_emails.txt`:
-```bash
-python email_extractor.py
-```
-*(Press Enter when prompted to use default settings)*
-
-### 3. Run the Webpage Title Scraper
-Scrape the default test webpage title (`https://example.com`):
-```bash
-python webpage_title_scraper.py
-```
-*(Press Enter when prompted to use default settings)*
-
----
-
-## 📊 Sample Output Previews
-
-### Image Organizer (`move_images.py`)
-```text
-==================================================
-      IMAGE ORGANIZER AUTOMATION SCRIPT         
-==================================================
-
-[+] Active Source Directory:      D:\GITHUB\CODEALPHA\CodeAlpha_TaskAutomation\sample_data\source_dir
-[+] Active Destination Directory: D:\GITHUB\CODEALPHA\CodeAlpha_TaskAutomation\sample_data\dest_dir
-
-[✔] Moved: image1.jpg -> dest_dir
-[✔] Moved: image2.jpg -> dest_dir
---------------------------------------------------
-                 SUMMARY                       
---------------------------------------------------
-Total JPG/JPEG files moved successfully: 2
-Non-JPG files left untouched:             1
---------------------------------------------------
-```
-
-### Email Extractor (`email_extractor.py`)
-```text
-==================================================
-        AUTOMATED EMAIL EXTRACTOR SCRIPT        
-==================================================
-
-[+] Reading Input File:  D:\GITHUB\CODEALPHA\CodeAlpha_TaskAutomation\sample_data\input_emails.txt
-[+] Output Destination:  D:\GITHUB\CODEALPHA\CodeAlpha_TaskAutomation\extracted_emails.txt
-
-[+] Found 5 email(s) total (5 unique).
-
-Extracted Emails:
-  - coordinators@codealpha.org
-  - hr-department@codealpha.com
-  - jobs.recruit@company-talent.co.uk
-  - john.doe@sub.domain.com
-  - support@codealpha.org
-
-[✔] Success: Saved unique list to 'D:\GITHUB\CODEALPHA\CodeAlpha_TaskAutomation\extracted_emails.txt'
-```
-
-### Webpage Title Scraper (`webpage_title_scraper.py`)
-```text
-==================================================
-       WEB SCRAPER: WEBPAGE TITLE EXTRACTOR     
-==================================================
-
-[+] Scrape Target URL:  https://example.com
-[+] Output Destination: D:\GITHUB\CODEALPHA\CodeAlpha_TaskAutomation\scraped_title.txt
-[~] Sending request, please wait...
-
-[✔] Webpage Title Found: "Example Domain"
-[✔] Success: Saved details to 'D:\GITHUB\CODEALPHA\CodeAlpha_TaskAutomation\scraped_title.txt'
-```
-
----
-
-## 📈 Future Improvements
-- **Scheduler Integration**: Wrap the scripts in an automated scheduling loop (e.g. run every day at 12:00 PM) using built-in OS utilities like Windows Task Scheduler or Cron.
-- **Support for More File Formats**: Expand `move_images.py` to organize multiple file categories (e.g., move `.pdf` to documents, `.mp4` to videos, `.zip` to compressed).
-- **Deep Web Crawling**: Expand `webpage_title_scraper.py` into a spider scraper that crawls all anchors (`<a>` tags) on a website and indexes all sub-page titles recursively.
-- **Log System**: Set up a persistent audit log file (`automation.log`) using Python's built-in `logging` module to track successes and errors over time.
+## 👤 Author
+- **Pragna Zala**
+- **GitHub**: [@pragna3101](https://github.com/pragna3101)
+- **Internship**: CodeAlpha Python Programming Intern
